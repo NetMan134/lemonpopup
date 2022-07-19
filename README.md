@@ -4,7 +4,7 @@ This shell script shows details in macOS-like pop-ups about your audio volume, s
 
 ## Usage
 
-```shell
+```
 lemontify   -p { audio | bcklight | bright | kbdlight } \
             [-h | -v | -i | -d | -o | -m | -t | -e | -r | -s <val> | -a text]
 ```
