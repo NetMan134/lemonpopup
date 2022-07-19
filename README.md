@@ -1,9 +1,10 @@
 # lemonpopup
-### A macOS inspired pop-ups based on lemonbar
 
-This shell script shows details about your audio volume, screen backlight, screen brightness, and keyboard brightness using lemonbar, allowing for updating their status
+This shell script shows details in macOS-like pop-ups about your audio volume, screen backlight, screen brightness, and keyboard brightness using lemonbar, also in the accompaniment it allows you to change these values.
 
-`usage: lemontify -p {audio|bcklight|bright|kbdlight} [-h | -v | -i | -d | -o | -m | -t | -e | -r | -s <val> | -a text]`
+## Usage
+
+> `lemontify -p {audio|bcklight|bright|kbdlight} [-h | -v | -i | -d | -o | -m | -t | -e | -r | -s <val> | -a text]`
 
 | Description			    | Command   |
 | :------------------------ | :-------- |
@@ -20,9 +21,9 @@ This shell script shows details about your audio volume, screen backlight, scree
 |-s \| --step \<value\>		| Set increment\|decrement step|
 |-a \| --text \<value\>		| Print additonal output text|
 |-p \| --provider \<value\>	| Set the current provider|
-|<div style="text-align: right">provider:audio</div>	|Set audio volume|
-|<div style="text-align: right">provider:bcklight</div>	|Set screen backlight|
-|<div style="text-align: right">provider:bright</div>	|Set screen brightness (xrandr)|
+|<div style="text-align: right">provider:audio</div>	|Set audio volume (using pactl)|
+|<div style="text-align: right">provider:bcklight</div>	|Set screen backlight (using xbacklight)|
+|<div style="text-align: right">provider:bright</div>	|Set screen brightness (using xrandr)|
 |<div style="text-align: right">provider:kbdlight</div>	|Set keyboard LEDs|
 
 
