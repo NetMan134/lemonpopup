@@ -43,6 +43,11 @@ lemonpopup  -p <audio|backlight|brightness|kbdlight> \
 - awk
 - getopt (GNU)
 
+## Screenshots
+
+![multi-line](/screenshots/multi-line-showcase.png)
+![single-line-uncompleted](/screenshots/single-line-showcase-uncompleted.png)
+
 ## Details
 
 This is a fork of @iBhagwan's [lemontify](https://github.com/ibhagwan/lemontify).<br>
