@@ -72,9 +72,11 @@ lemonpopup  -p <audio|backlight|brightness|kbdlight> \
                         <em>audio<br>backlight<br>brightness<br>kbdlight</em>
                     </div>
                 </td>
-                <td>
-                    Set the current provider
-                    <div>
+                <td style="position:relative;">
+                    <div style="position:absolute; top:5px;">
+                        Set the current provider
+                    </div>
+                    <div style="position:absolute; bottom:5px;">
                         <em>Audio volume (using pactl)<br>Screen backlight (using xbacklight)<br>Screen brightness (using xrandr)<br>Keyboard LED (using kbdlight)</em>
                     </div>
                 </td>
