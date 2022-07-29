@@ -6,7 +6,8 @@ This shell script shows notifications in macOS-like (but not only) pop-ups about
 
 ```
 lemonpopup  -p <audio|backlight|brightness|kbdlight> \
-            [ -evrl ] [ -i <step> | -d <step> | -o | -m | -T ] [ -a <text> ] [ -t <time>]
+            [ -evrl ] [ -i <step> | -d <step> | -o | -m | -T ] \
+            [ -a <text> ] [ -t <seconds>]
 ```
 
 <div class="table-wrapper" style="overflow-x: scroll;" markdown="block">
@@ -26,11 +27,11 @@ lemonpopup  -p <audio|backlight|brightness|kbdlight> \
                 <td>Print verbose output</td>
             </tr>
             <tr>
-                <td>-i, --inc</td>
+                <td>-i, --increase &#60;step&#62;</td>
                 <td>Increase current level by a step value</td>
             </tr>
             <tr>
-                <td>-d, --dec</td>
+                <td>-d, --decrease &#60;step&#62;</td>
                 <td>Decrease current level by a step value</td>
             </tr>
             <tr>
@@ -46,7 +47,7 @@ lemonpopup  -p <audio|backlight|brightness|kbdlight> \
                 <td>Toggle on or off (if applicable)</td>
             </tr>
             <tr>
-                <td>-t, --time</td>
+                <td>-t, --time &#60;seconds&#62;</td>
                 <td>Set duration time</td>
             </tr>
             <tr>
@@ -58,7 +59,7 @@ lemonpopup  -p <audio|backlight|brightness|kbdlight> \
                 <td>Ramp icon based on level (default=false)</td>
             </tr>
             <tr>
-                <td>-l, --ramp</td>
+                <td>-l, --line</td>
                 <td>Print as one line (disable multiline)</td>
             </tr>
             <tr>

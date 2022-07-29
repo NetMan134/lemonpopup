@@ -403,28 +403,27 @@ linux_kbdlight_set() {
 #############################################################################################
 
 usage() {
-	echo "usage: lemonpopup -p { audio | backlight | brightness | kbdlight} \\";
-	echo "                  [-h | -v | -i | -d | -o | -m | -t | -e | -r | -s <val> | -a text | --time <val>]";
-	#echo 14"";
+	echo "usage: lemonpopup  -p <audio|backlight|brightness|kbdlight>          \\";
+	echo "                   [ -evrl ] [ -i <step> | -d <step> | -o | -m | -T ] \\";
+	echo "                   [ -a <text> ] [ -t <time>]";
 	echo "options:";
-	echo "       -h|--help                  Show this help";
-	echo "       -v|--verbose               Print verbose output";
-	echo "       -i|--inc                   Increase current level";
-	echo "       -d|--dec                   Decreasse current level";
-	echo "       -o|--off                   Set current level to off";
-	echo "       -m|--max                   Set current level to max";
-	echo "       -t|--toggle                Toggle on|off (if applicable)";
-	echo "       -e|--empty                 Print empty squares (default=false)";
-	echo "       -r|--ramp                  Ramp icon based on level (default=false)";
-	echo "       -l|--line                  Print as one line (disable multiline)";
-	echo "       -s|--step <val>            Set increment|decrement step";
-	echo "       -a|--text <val>            Print additonal output text";
-	echo "       -p|--provider <val>        Set the current provider";
-	echo "       --time <val>               Set the popup duration";
-	echo "            audio                 Set audio volume";
-	echo "            backlight             Set screen backlight";
-	echo "            brightness            Set screen brightness (xrandr)";
-	echo "            kbdlight              Set keyboard LEDs";
+	echo "       -h, --help                  Show this help";
+	echo "       -v, --verbose               Print verbose output";
+	echo "       -i, --increase <step>       Increase current level";
+	echo "       -d, --decrease <step>       Decreasse current level";
+	echo "       -o, --off                   Set current level to off";
+	echo "       -m, --max                   Set current level to max";
+	echo "       -T, --toggle                Toggle on|off (if applicable)";
+	echo "       -t, --time <seconds>        Set the popup duration";
+	echo "       -e, --empty                 Print empty squares (default=false)";
+	echo "       -r, --ramp                  Ramp icon based on level (default=false)";
+	echo "       -l, --line                  Print as one line (disable multiline)";
+	echo "       -a, --text <text>           Print additonal output text";
+	echo "       -p, --provider <value>      Set the current provider";
+	echo "                        audio      Set audio volume";
+	echo "                    backlight      Set screen backlight";
+	echo "                   brightness      Set screen brightness (xrandr)";
+	echo "                     kbdlight      Set keyboard LEDs";
 }
 
 # saner programming env: these switches turn some bugs into errors
@@ -439,8 +438,8 @@ if [ $? -ne 4 ]; then
     exit 1
 fi
 
-OPTIONS=hvp:omTerlbi:d:a:t:
-LONGOPTS=help,verbose,provider:,inc,dec,off,max,toggle,empty,ramp,line:,text:,time:
+OPTIONS=hvp:omTerli:d:a:t:
+LONGOPTS=help,verbose,provider:,off,max,toggle,empty,ramp,line,increase:,decrease:,text:,time:
 
 # -regarding ! and PIPESTATUS see above
 # -temporarily store output to be able to check for errors
@@ -489,7 +488,7 @@ while true; do
 			provider=$2
 			shift 2
 			;;
-		-i | --inc)
+		-i | --increase)
 			case $2 in
 				''|*[!0-9]*)
 					echo "error: Invalid step:" $2 >&2;
@@ -502,7 +501,7 @@ while true; do
 			esac
 			shift 2
 			;;
-		-d | --dec)
+		-d | --decrease)
 			case $2 in
 				''|*[!0-9]*)
 					echo "error: Invalid step:" $2 >&2;
@@ -569,7 +568,7 @@ if [ "${provider}" = "audio" ]    \
 || [ "${provider}" = "backlight" ] \
 || [ "${provider}" = "brightness" ] \
 || [ "${provider}" = "kbdlight" ]; then
-   dump=1
+    dump=1
 elif [ -z ${provider} ]; then
 	echo "error: provider not specified"
 	usage;
